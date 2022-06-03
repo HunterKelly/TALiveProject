@@ -6,8 +6,48 @@ Below are descriptions of the stories I worked on, along with code snippets
 Back End Stories: <br>
 Created CRUD application for production members. An admin can add or remove production members to a table in the database. The photos on the table are converted to byte format for easy storage and retrieval
 
+```
+public byte[] createPhotoByte(HttpPostedFileBase postedFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(postedFile.InputStream))
+            {
+                bytes = br.ReadBytes(postedFile.ContentLength);
+            }
+            return bytes;
+        }
 
+```
+This is the photo conversion to a byte so it is able to be stored in the database table
 
+```
+
+public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,MainRole,Film,Bio,Photo,CurrentMember,Character,CastYearLeft,DebutYearLeft")] ProductionMember productionMember, HttpPostedFileBase postedFile)
+        {
+            if (postedFile != null)
+            {
+                productionMember.Photo = createPhotoByte(postedFile);
+                if (ModelState.IsValid)
+                {
+                    db.ProductionMembers.Add(productionMember);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    db.ProductionMembers.Add(productionMember);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(productionMember);
+        }
+
+```
+This is the method used to create a new production member, the if else statement is to allow for a null photo.
 
 Front End Stories: <br>
 On the index page, production members are displayed on cards, organized by the production film they are associated with.
