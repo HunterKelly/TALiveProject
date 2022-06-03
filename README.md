@@ -3,7 +3,7 @@ This is the source code I created while working on The Tech Academy Live Project
 
 Below are descriptions of the stories I worked on, along with code snippets
 
-Back End Stories: <br>
+<h1>Back End Stories: </h1><br>
 Created CRUD application for production members. An admin can add or remove production members to a table in the database. The photos on the table are converted to byte format for easy storage and retrieval
 
 ```
@@ -49,7 +49,7 @@ public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,M
 ```
 This is the method used to create a new production member, the if else statement is to allow for a null photo.
 
-<h1>Front End Stories: </h1><br><hr>
+<h1>Front End Stories: </h1>
 On the index page, production members are displayed on cards, organized by the production film they are associated with.
 
 ```
