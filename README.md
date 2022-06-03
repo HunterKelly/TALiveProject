@@ -49,7 +49,7 @@ public ActionResult Create([Bind(Include = "ProductionMemberId,Name,YearJoined,M
 ```
 This is the method used to create a new production member, the if else statement is to allow for a null photo.
 
-Front End Stories: <br>
+<h1>Front End Stories: </h1><br><hr>
 On the index page, production members are displayed on cards, organized by the production film they are associated with.
 
 ```
