@@ -93,9 +93,9 @@ This is the code that creates and displays every production member. Utilizes Fon
 
 
 <h1>Other Skills Learned</h1>
-<li>
+
 <ul>Working with a group of developers to identify front and back end bugs to the improve usability of an application</ul>
 <ul>Improving project flow by communicating about who needs to check out which files for their current story</ul>
 <ul>Learning new efficiencies from other developers by observing their workflow and asking questions</ul>
 <ul>Practice with team programming/pair programming when one developer runs into a bug they cannot solve</ul>
-        </li>
+        
