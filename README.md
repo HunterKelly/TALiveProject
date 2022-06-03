@@ -9,5 +9,39 @@ Created CRUD application for production members. An admin can add or remove prod
 
 
 
-Front End Stories
-On the index page, they are organized by which production they work on.
+Front End Stories: <br>
+On the index page, production members are displayed on cards, organized by the production film they are associated with.
+
+```
+<div class="body-content row">
+        @foreach (var item in group)
+        {
+        string text = "";
+        if (item.Photo != null)
+        {
+        text = Convert.ToBase64String(item.Photo);
+
+        <div class="card-deck" style="display: inline-block; width: 18rem;">
+            <i class="fa-paperclip:before icon-white"></i>
+                <div class="card">
+                    <a href="@Url.Action("Details", new { id = item.ProductionMemberId })">
+                        <img src="data:image;base64,@text" class="ProductionMembers-Index-Photo" style="height: 12rem;" alt="No available photo">
+                    </a>
+                    <div class="card-body cms-bg-main-light ProductionMembers-text-card">
+                        <h5 class="card-title"><strong><u>@Html.DisplayFor(modelItem => item.Character)</u></strong></h5>
+
+                        <p>@Html.DisplayFor(modelItem => item.Name)</p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i href="#">@Html.ActionLink(" ", "Delete", new { id = item.ProductionMemberId }, new { @class = "fa fa-edit fa-lg cms-text-secondary" })</i>
+                        <i href="#">@Html.ActionLink(" ", "Delete", new { id = item.ProductionMemberId }, new { @class = "fa fa-trash fa-lg cms-text-secondary" })</i>
+                    </div>
+                </div>
+           
+        </div>
+        }
+        } 
+    </div>
+
+```
+This is the code that creates and displays every production member. Utilizes FontAwesome for the edit/delete icons
+
