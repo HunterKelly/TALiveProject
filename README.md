@@ -3,7 +3,7 @@ This is the source code I created while working on The Tech Academy Live Project
 
 Below are descriptions of the stories I worked on, along with code snippets
 
-Back End Stories
+Back End Stories: <br>
 Created CRUD application for production members. An admin can add or remove production members to a table in the database. The photos on the table are converted to byte format for easy storage and retrieval
 
 
